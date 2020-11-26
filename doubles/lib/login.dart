@@ -28,7 +28,14 @@ class LoginPage extends StatelessWidget {
                 Column(
                   //mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
-                    //logo
+                    Container(
+                      height: MediaQuery.of(context).size.height / 8,
+                      decoration: BoxDecoration(
+                          image: DecorationImage(
+                              image: AssetImage('assets/img/logo-mini.png')
+                          )
+                      ),
+                    ),//logo
                   ],
                 ),
               ],

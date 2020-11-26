@@ -17,6 +17,7 @@ class SignUp extends StatelessWidget {
           icon: Icon(Icons.arrow_back_ios, size: 20, color: Colors.black),
         ),
       ),
+
       body: Container(
         height: MediaQuery.of(context).size.height,
         width: double.infinity,
@@ -26,7 +27,14 @@ class SignUp extends StatelessWidget {
             Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
-                //logo
+                Container(
+                  height: MediaQuery.of(context).size.height / 8,
+                  decoration: BoxDecoration(
+                      image: DecorationImage(
+                          image: AssetImage('assets/img/logo-mini.png')
+                      )
+                  ),
+                ),//logo
               ],
             ),
             Padding(
