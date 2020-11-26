@@ -4,17 +4,20 @@ const { graphqlHTTP } = require('express-graphql');
 const { buildSchema } = require('graphql');
 const { resolvers } = require('./src/resolvers.js');
 const { typeDefs } = require('./src/typeDefs.js');
-const db = require('./config/db.js');
+let db;
+(async function () {
+    db = await require('./config/db.js');
+})();
 const app = express();
 
-
+console.log(db);
 
 const server = new ApolloServer({
     typeDefs,
     resolvers,
-    context: {
-        db: db
-    }
+    context: async ({req, res, connection}) => {
+        return { db: db.db }
+      },
 });
 
 server.applyMiddleware({ app });
