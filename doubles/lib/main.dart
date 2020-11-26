@@ -73,7 +73,7 @@ class _HomePageState extends State<HomePage> {
                 height: MediaQuery.of(context).size.height / 3,
                 decoration: BoxDecoration(
                     image: DecorationImage(
-                        image: AssetImage('img/flut.png')
+                        image: AssetImage('assets/img/flut.png')
                     )
                 ),
               ),
