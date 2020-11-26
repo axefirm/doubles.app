@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:doubles/login.dart';
 import 'package:doubles/signup.dart';
+import 'package:doubles/test.dart';
 
 import 'graphql/TodoFetch.dart';
 
@@ -26,6 +27,7 @@ class App extends StatelessWidget {
       //   child: HomePage(),
       //   client: client,
       // ),
+
     );
   }
 }
@@ -39,102 +41,133 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      key: _scaffoldKey,
-      //appBar: AppBar(title: Text("GraphQL Test"),),
-      body: SafeArea(
-        child: Container(
-          width: double.infinity,
+    return Stack(
+      children: [
+        // Image(
+        //   image: AssetImage("assets/img/mountain.jpg"),
+        //   height: MediaQuery.of(context).size.height,
+        //   width: MediaQuery.of(context).size.width,
+        //   fit: BoxFit.cover,
+        // ),
+        Image.asset(
+          'assets/img/mountain.jpg',
           height: MediaQuery.of(context).size.height,
-          padding: EdgeInsets.symmetric(horizontal: 30),
-          child: Column(
-            //mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: <Widget>[
-              SizedBox(height:25,),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: <Widget>[
-                  Text('Welcome', style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 30,
-                  ),),
-                  SizedBox(height: 20,),
-                  Text("Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown .",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      color: Colors.grey[700],
-                      fontSize: 13,
-                    ),
-                  ),
-                ],
-              ),
-              SizedBox(height:20,),
-              Container(
-                height: MediaQuery.of(context).size.height / 3,
-                decoration: BoxDecoration(
-                    image: DecorationImage(
-                        image: AssetImage('assets/img/flut.png')
-                    )
-                ),
-              ),
-              SizedBox(height: 110,),
-              Column(
-                children: <Widget>[
-                  MaterialButton(
-                    minWidth: double.infinity,
-                    height: 45,
-                    onPressed: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
-                    },
-                    shape: RoundedRectangleBorder(
-                        side: BorderSide(
-                            color: Colors.white
-                        ),
-                        borderRadius: BorderRadius.circular(50)
-                    ),
-                    child: Text("Login", style:
-                    TextStyle(
-                      fontWeight: FontWeight.w600,
-                    ),
-                    ),
-                  ),
-                  SizedBox(height:10,),
-                  Container(
-                    child: MaterialButton(
-                      minWidth: double.infinity,
-                      height: 45,
-                      onPressed: (){
-                        Navigator.push(context, MaterialPageRoute(builder: (context) => SignUp()));
-                      },
-                      color: Colors.white,
-                      shape: RoundedRectangleBorder(
-                          side: BorderSide(
-                              color: Colors.white
-                          ),
-                          borderRadius: BorderRadius.circular(50)
-                      ),
-                      child: Text("Sign up", style:
-                      TextStyle(
-                        fontWeight: FontWeight.w600,
-                        color: Colors.redAccent,
-                      ),
-                      ),
-                    ),
-                  )
-                ],
-              ),
-            ],
+          width: MediaQuery.of(context).size.width,
+          fit: BoxFit.cover,
+        ),
+
+        Container(
+          height: MediaQuery.of(context).size.height,
+          decoration: BoxDecoration(
+            color: Color(0xFFD54546).withOpacity(0.7),
           ),
         ),
-      ),
-      // body: Query(
-      //   options: QueryOptions(
-      //     documentNode: gql(TodoFetch.fetchAll),
-      //   ),
-      //   builder: (result, {fetchMore, refetch}) {
-      //     return Text(result.data ?? "EMPTY");
-      //   },
-      // ),
+        //constraints: BoxConstraints.expand(),
+        //decoration: BoxDecoration(
+        //     image: DecorationImage(
+        //         image: AssetImage("assets/img/mountain.jpg"),
+        //         fit: BoxFit.cover)
+        //),
+        Scaffold(
+          backgroundColor: Colors.transparent,
+          key: _scaffoldKey,
+          //appBar: AppBar(title: Text("GraphQL Test"),),
+          body: Container(
+            child: SafeArea(
+              child: Container(
+
+                //color: Colors.cyan,
+                // width: double.infinity,
+                // height: MediaQuery.of(context).size.height,
+                // padding: EdgeInsets.symmetric(horizontal: 30),
+                child: Column(
+                  //mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    SizedBox(height:35,),
+                    Container(
+                      height: MediaQuery.of(context).size.height / 2,
+                      decoration: BoxDecoration(
+                          image: DecorationImage(
+                              image: AssetImage('assets/img/5.png')
+                          )
+                      ),
+                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: <Widget>[
+                        Text("Version 1.0.1",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 12,
+                          ),
+                        ),
+                      ],
+                    ),
+                    //SizedBox(height:20,),
+
+                    SizedBox(height: 110,),
+                    Column(
+                      children: <Widget>[
+                        MaterialButton(
+                          minWidth: double.infinity,
+                          height: 45,
+                          onPressed: (){
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
+                          },
+                          shape: RoundedRectangleBorder(
+                              side: BorderSide(
+                                  color: Colors.white
+                              ),
+                              borderRadius: BorderRadius.circular(50)
+                          ),
+                          child: Text("Login", style:
+                          TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.w600,
+                          ),
+                          ),
+                        ),
+                        SizedBox(height:10,),
+                        Container(
+                          child: MaterialButton(
+                            minWidth: double.infinity,
+                            height: 45,
+                            onPressed: (){
+                              Navigator.push(context, MaterialPageRoute(builder: (context) => SignUp()));
+                            },
+                            color: Colors.white,
+                            shape: RoundedRectangleBorder(
+                                side: BorderSide(
+                                    color: Colors.white
+                                ),
+                                borderRadius: BorderRadius.circular(50)
+                            ),
+                            child: Text("Sign up", style:
+                            TextStyle(
+                              fontWeight: FontWeight.w600,
+                              color: Colors.redAccent,
+                            ),
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+          // body: Query(
+          //   options: QueryOptions(
+          //     documentNode: gql(TodoFetch.fetchAll),
+          //   ),
+          //   builder: (result, {fetchMore, refetch}) {
+          //     return Text(result.data ?? "EMPTY");
+          //   },
+          // ),
+        ),
+      ],
     );
   }
 }
