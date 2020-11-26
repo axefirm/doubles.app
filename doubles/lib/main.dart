@@ -3,8 +3,9 @@ import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:doubles/login.dart';
 import 'package:doubles/signup.dart';
 import 'package:doubles/test.dart';
+import 'package:doubles/navigation.dart';
+import 'package:flutter/services.dart';
 
-import 'graphql/TodoFetch.dart';
 
 void main() => runApp(App());
 
@@ -22,7 +23,7 @@ class App extends StatelessWidget {
     // );
 
     return MaterialApp(
-      home: LoginPage(),
+      home: NavigationPage(),
       // home: GraphQLProvider(
       //   child: HomePage(),
       //   client: client,
@@ -41,6 +42,7 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setEnabledSystemUIOverlays([SystemUiOverlay.bottom]);
     return Stack(
       // fit: StackFit.expand,
       children: [

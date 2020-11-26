@@ -25,6 +25,7 @@ dependencies:
   graphql_flutter: ^3.0.0 # a graphql client
   flutter:
     sdk: flutter
+  eva_icons_flutter: ^2.0.1
 
 
   # The following adds the Cupertino Icons font to your application.

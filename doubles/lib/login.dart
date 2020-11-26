@@ -15,7 +15,7 @@ class LoginPage extends StatelessWidget {
         Container(
           height: MediaQuery.of(context).size.height,
           decoration: BoxDecoration(
-            //color: Color(0xFFE3F2FD).withOpacity(0.4),
+            color: Color(0xFFE3F2FD).withOpacity(0.4),
           ),
         ),
         Scaffold(
