@@ -22,7 +22,7 @@ class App extends StatelessWidget {
     // );
 
     return MaterialApp(
-      home: HomePage(),
+      home: LoginPage(),
       // home: GraphQLProvider(
       //   child: HomePage(),
       //   client: client,
@@ -42,15 +42,16 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Stack(
+      // fit: StackFit.expand,
       children: [
-        // Image(
-        //   image: AssetImage("assets/img/mountain.jpg"),
-        //   height: MediaQuery.of(context).size.height,
-        //   width: MediaQuery.of(context).size.width,
-        //   fit: BoxFit.cover,
-        // ),
+      //   new Image(
+      //     image: new AssetImage('assets/img/mm.jpg'),
+      //     fit: BoxFit.cover,
+      //     color:Colors.red[200],
+      //     colorBlendMode: BlendMode.darken,
+      //   ),
         Image.asset(
-          'assets/img/mountain.jpg',
+          'assets/img/mm.jpg',
           height: MediaQuery.of(context).size.height,
           width: MediaQuery.of(context).size.width,
           fit: BoxFit.cover,
@@ -59,15 +60,10 @@ class _HomePageState extends State<HomePage> {
         Container(
           height: MediaQuery.of(context).size.height,
           decoration: BoxDecoration(
-            color: Color(0xFFD54546).withOpacity(0.7),
+            color: Color(0xFFD54546).withOpacity(0.85),
           ),
         ),
-        //constraints: BoxConstraints.expand(),
-        //decoration: BoxDecoration(
-        //     image: DecorationImage(
-        //         image: AssetImage("assets/img/mountain.jpg"),
-        //         fit: BoxFit.cover)
-        //),
+
         Scaffold(
           backgroundColor: Colors.transparent,
           key: _scaffoldKey,
@@ -75,11 +71,8 @@ class _HomePageState extends State<HomePage> {
           body: Container(
             child: SafeArea(
               child: Container(
-
-                //color: Colors.cyan,
-                // width: double.infinity,
-                // height: MediaQuery.of(context).size.height,
-                // padding: EdgeInsets.symmetric(horizontal: 30),
+                height: MediaQuery.of(context).size.height,
+                padding: EdgeInsets.symmetric(horizontal: 30),
                 child: Column(
                   //mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[

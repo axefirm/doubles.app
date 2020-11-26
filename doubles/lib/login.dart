@@ -3,90 +3,107 @@ import 'package:flutter/material.dart';
 class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      resizeToAvoidBottomInset: false,
-      backgroundColor: Colors.white,
-      appBar: AppBar(
-        elevation: 0,
-        brightness: Brightness.light,
-        backgroundColor: Colors.white,
-        leading: IconButton(
-          onPressed: (){
-            Navigator.pop(context);
-          },
-          icon: Icon(Icons.arrow_back_ios, size: 20, color: Colors.black),
+    return Stack(
+      children: [
+        Image.asset(
+          'assets/img/m.jpg',
+          height: MediaQuery.of(context).size.height,
+          width: MediaQuery.of(context).size.width,
+          fit: BoxFit.cover,
         ),
-      ),
-      body: Container(
-        height: MediaQuery.of(context).size.height,
-        width: double.infinity,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            Column(
+
+        Container(
+          height: MediaQuery.of(context).size.height,
+          decoration: BoxDecoration(
+            //color: Color(0xFFE3F2FD).withOpacity(0.4),
+          ),
+        ),
+        Scaffold(
+          // resizeToAvoidBottomInset: false,
+          // backgroundColor: Colors.white,
+          appBar: AppBar(
+            elevation: 0,
+            brightness: Brightness.light,
+            backgroundColor: Colors.white,
+            leading: IconButton(
+              onPressed: (){
+                Navigator.pop(context);
+              },
+              icon: Icon(Icons.arrow_back_ios, size: 20, color: Colors.black),
+            ),
+          ),
+          body: Container(
+            height: MediaQuery.of(context).size.height,
+            width: double.infinity,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
                 Column(
-                  //mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
-                    Container(
-                      height: MediaQuery.of(context).size.height / 8,
-                      decoration: BoxDecoration(
-                          image: DecorationImage(
-                              image: AssetImage('assets/img/logo-mini.png')
-                          )
-                      ),
-                    ),//logo
+                    Column(
+                      //mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Container(
+                          height: MediaQuery.of(context).size.height / 8,
+                          decoration: BoxDecoration(
+                              image: DecorationImage(
+                                  image: AssetImage('assets/img/logo-mini.png')
+                              )
+                          ),
+                        ),//logo
+                      ],
+                    ),
                   ],
                 ),
-              ],
-            ),
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal:40),
-              child: Column(
-                children: <Widget>[
-                  makeInput(label: "UserName"),
-                  SizedBox(height:10, ),
-                  makeInput(label: "Password", obsecureText: true),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal:40),
+                  child: Column(
+                    children: <Widget>[
+                      makeInput(label: "UserName"),
+                      SizedBox(height:10, ),
+                      makeInput(label: "Password", obsecureText: true),
 
-                ],
-              ),
-            ),
-            Padding(
-                padding: EdgeInsets.symmetric(horizontal: 40),
-                child: Container(
-                  child: MaterialButton(
-                    minWidth: double.infinity,
-                    height: 45,
-                    onPressed: (){},
-                    color: Colors.redAccent,
-                    shape: RoundedRectangleBorder(
-                        side: BorderSide(
-                            color: Colors.white
-                        ),
-                        borderRadius: BorderRadius.circular(50)
-                    ),
-                    child: Text("Login", style:
-                    TextStyle(
-                      fontWeight: FontWeight.w600,
-                      color: Colors.white,
-                    ),
-                    ),
+                    ],
                   ),
+                ),
+                Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 40),
+                    child: Container(
+                      child: MaterialButton(
+                        minWidth: double.infinity,
+                        height: 45,
+                        onPressed: (){},
+                        color: Colors.redAccent,
+                        shape: RoundedRectangleBorder(
+                            side: BorderSide(
+                                color: Colors.white
+                            ),
+                            borderRadius: BorderRadius.circular(50)
+                        ),
+                        child: Text("Login", style:
+                        TextStyle(
+                          fontWeight: FontWeight.w600,
+                          color: Colors.white,
+                        ),
+                        ),
+                      ),
+                    )
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Text("Don't have an account?"),
+                    Text("Sign up", style: TextStyle(
+                      fontWeight: FontWeight.w600,
+                      fontSize: 13,
+                    ),),
+                  ],
                 )
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Text("Don't have an account?"),
-                Text("Sign up", style: TextStyle(
-                  fontWeight: FontWeight.w600,
-                  fontSize: 13,
-                ),),
               ],
-            )
-          ],
+            ),
+          ),
         ),
-      ),
+      ],
     );
   }
   Widget makeInput({label, obsecureText = false}){

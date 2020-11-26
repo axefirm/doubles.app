@@ -3,89 +3,106 @@ import 'package:flutter/material.dart';
 class SignUp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      resizeToAvoidBottomInset: false,
-      backgroundColor: Colors.white,
-      appBar: AppBar(
-        elevation: 0,
-        brightness: Brightness.light,
-        backgroundColor: Colors.white,
-        leading: IconButton(
-          onPressed: (){
-            Navigator.pop(context);
-          },
-          icon: Icon(Icons.arrow_back_ios, size: 20, color: Colors.black),
+    return Stack(
+      children: [
+        Image.asset(
+          'assets/img/mm.jpg',
+          height: MediaQuery.of(context).size.height,
+          width: MediaQuery.of(context).size.width,
+          fit: BoxFit.cover,
         ),
-      ),
 
-      body: Container(
-        height: MediaQuery.of(context).size.height,
-        width: double.infinity,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            Column(
+        Container(
+          height: MediaQuery.of(context).size.height,
+          decoration: BoxDecoration(
+            color: Color(0xFFD54546).withOpacity(0.85),
+          ),
+        ),
+        Scaffold(
+          //resizeToAvoidBottomInset: false,
+          //backgroundColor: Colors.white,
+          appBar: AppBar(
+            elevation: 0,
+            brightness: Brightness.light,
+            backgroundColor: Colors.white,
+            leading: IconButton(
+              onPressed: (){
+                Navigator.pop(context);
+              },
+              icon: Icon(Icons.arrow_back_ios, size: 20, color: Colors.black),
+            ),
+          ),
+
+          body: Container(
+            height: MediaQuery.of(context).size.height,
+            width: double.infinity,
+            child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
-                Container(
-                  height: MediaQuery.of(context).size.height / 8,
-                  decoration: BoxDecoration(
-                      image: DecorationImage(
-                          image: AssetImage('assets/img/logo-mini.png')
-                      )
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    Container(
+                      height: MediaQuery.of(context).size.height / 8,
+                      decoration: BoxDecoration(
+                          image: DecorationImage(
+                              image: AssetImage('assets/img/logo-mini.png')
+                          )
+                      ),
+                    ),//logo
+                  ],
+                ),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal:40),
+                  child: Column(
+                    children: <Widget>[
+                      makeInput(label: "UserName"),
+                      SizedBox(height:10, ),
+                      makeInput(label: "Password", obsecureText: true),
+                      SizedBox(height:10, ),
+                      makeInput(label: "Confirm Password", obsecureText: true),
+                    ],
                   ),
-                ),//logo
-              ],
-            ),
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal:40),
-              child: Column(
-                children: <Widget>[
-                  makeInput(label: "UserName"),
-                  SizedBox(height:10, ),
-                  makeInput(label: "Password", obsecureText: true),
-                  SizedBox(height:10, ),
-                  makeInput(label: "Confirm Password", obsecureText: true),
-                ],
-              ),
-            ),
-            Padding(
-                padding: EdgeInsets.symmetric(horizontal: 40),
-                child: Container(
-                  child: MaterialButton(
-                    minWidth: double.infinity,
-                    height: 45,
-                    onPressed: (){},
-                    color: Colors.redAccent,
-                    shape: RoundedRectangleBorder(
-                        side: BorderSide(
-                            color: Colors.white
+                ),
+                Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 40),
+                    child: Container(
+                      child: MaterialButton(
+                        minWidth: double.infinity,
+                        height: 45,
+                        onPressed: (){},
+                        color: Colors.redAccent,
+                        shape: RoundedRectangleBorder(
+                            side: BorderSide(
+                                color: Colors.white
+                            ),
+                            borderRadius: BorderRadius.circular(50)
                         ),
-                        borderRadius: BorderRadius.circular(50)
-                    ),
-                    child: Text("Sign up", style:
-                    TextStyle(
-                      fontWeight: FontWeight.w600,
-                      color: Colors.white,
-                    ),
-                    ),
-                  ),
-                )
-            ),
+                        child: Text("Sign up", style:
+                        TextStyle(
+                          fontWeight: FontWeight.w600,
+                          color: Colors.white,
+                        ),
+                        ),
+                      ),
+                    )
+                ),
 
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Text("Already have an account?"),
-                Text("Login", style: TextStyle(
-                  fontWeight: FontWeight.w600,
-                  fontSize: 13,
-                ),),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Text("Already have an account?"),
+                    Text("Login", style: TextStyle(
+                      fontWeight: FontWeight.w600,
+                      fontSize: 13,
+                    ),),
+                  ],
+                )
               ],
-            )
-          ],
+            ),
+          ),
         ),
-      ),
+      ],
     );
   }
   Widget makeInput({label, obsecureText = false}){
