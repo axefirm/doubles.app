@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "188808129416",
+    "firebase_url": "https://doubles-a384e.firebaseio.com",
+    "project_id": "doubles-a384e",
+    "storage_bucket": "doubles-a384e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:188808129416:android:8cf2e549604a6371e1683d",
+        "android_client_info": {
+          "package_name": "num.octavues.doubles"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "188808129416-5o0els8f2rggrdcahjjqnna0i4e69fu9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBfG0V0yTs0wS15d438HNnqs3Y6RW1G8BY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "188808129416-5o0els8f2rggrdcahjjqnna0i4e69fu9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -21,6 +21,8 @@ environment:
   sdk: ">=2.7.0 <3.0.0"
 
 dependencies:
+  flutter_bloc: ^3.2.0 # to make bloc pattern fun
+  graphql_flutter: ^3.0.0 # a graphql client
   flutter:
     sdk: flutter
 
@@ -28,8 +30,13 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.0
+  firebase_auth: ^0.18.3+1
+  cloud_firestore: ^0.14.3+1
 
 dev_dependencies:
+  artemis: ^5.1.0 # to generate dart classes from graphql queries
+  build_runner: ^1.5.0 # required by artemis
+  json_serializable: ^3.0.0 # required by artemis
   flutter_test:
     sdk: flutter
 
