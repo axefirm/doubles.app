@@ -2,8 +2,9 @@ const { ApolloServer, gql } = require('apollo-server-express');
 
 const typeDefs = gql`
   type Query{
-      hello: String!
+      getUsers: [User]
   }
+
   type Response {
     success: Boolean!
     message: String!
@@ -16,6 +17,7 @@ const typeDefs = gql`
     outDatetime: String
     year: String
   }
+
   input UserInput {
     firstname: String
     lastname: String
@@ -23,6 +25,7 @@ const typeDefs = gql`
     outDatetime: String
     year: String
   }
+  
   type Mutation{
       createUser(input: UserInput): Response
   }

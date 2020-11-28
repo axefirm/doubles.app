@@ -1,6 +1,8 @@
 const resolvers = {
     Query: {
-        hello: () => "hello"
+        getUsers: async function(root, args, context, info){
+            return await context.db.collection('user').find().toArray();
+          },
     },
     Mutation: {
         createUser: async function(root, args, context, info){
