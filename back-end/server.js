@@ -2,8 +2,12 @@ const express = require('express');
 const { ApolloServer, gql } = require('apollo-server-express');
 const { graphqlHTTP } = require('express-graphql');
 const { buildSchema } = require('graphql');
-const { resolvers } = require('./src/resolvers.js');
-const { typeDefs } = require('./src/typeDefs.js');
+const { mergeTypeDefs } = require('graphql-tools-merge-typedefs');
+const GMR  = require('graphql-merge-resolvers'); // Import module
+// const { resolvers } = require('./src/resolvers.js');
+// const { typeDefs } = require('./src/typeDefs.js');
+const { studentDef } = require('./src/controller/student/typedef');
+const { studentResolver } = require('./src/controller/student/index');
 
 let MongoClient = require('mongodb').MongoClient;
 let ObjectId = require('mongodb').ObjectId;
@@ -13,8 +17,12 @@ const app = express();
 let db;
 
 const apolloServer = new ApolloServer({
-    typeDefs,
-    resolvers,
+    typeDefs: mergeTypeDefs([
+        studentDef
+    ]),
+    resolvers: GMR.merge([
+        studentResolver,
+      ]),
     context: async () => {
         if (!db) {
             try {
@@ -40,4 +48,4 @@ const apolloServer = new ApolloServer({
 apolloServer.applyMiddleware({ app });
 
 app.listen(4000);
-console.log(`Running a GraphQL API server at http://localhost:4000 ${server.graphqlPath}`);
+console.log(`Running a GraphQL API server at http://localhost:4000 ${apolloServer.graphqlPath}`);
