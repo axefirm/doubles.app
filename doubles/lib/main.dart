@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
-import 'package:doubles/login.dart';
+import 'file:///E:/projects/doubles.app/doubles/lib/modules/login/login.dart';
 import 'package:doubles/signup.dart';
 import 'package:doubles/test.dart';
 import 'package:doubles/navigation.dart';
@@ -23,7 +23,7 @@ class App extends StatelessWidget {
     // );
 
     return MaterialApp(
-      home: Calendar(),
+      home: HomePage(),
       // home: GraphQLProvider(
       //   child: HomePage(),
       //   client: client,

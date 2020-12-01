@@ -1,3 +1,4 @@
+import 'package:doubles/navigation.dart';
 import 'package:flutter/material.dart';
 import 'package:table_calendar/table_calendar.dart';
 
@@ -26,6 +27,7 @@ class _CalendarState extends State<Calendar> {
   }
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: NavigationPage(),
       body: Container(
         child: SingleChildScrollView(
           child: Column(
