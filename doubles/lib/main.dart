@@ -5,7 +5,7 @@ import 'package:doubles/signup.dart';
 import 'package:doubles/test.dart';
 import 'package:doubles/navigation.dart';
 import 'package:flutter/services.dart';
-
+import 'package:doubles/calendar.dart';
 
 void main() => runApp(App());
 
@@ -23,7 +23,7 @@ class App extends StatelessWidget {
     // );
 
     return MaterialApp(
-      home: NavigationPage(),
+      home: Calendar(),
       // home: GraphQLProvider(
       //   child: HomePage(),
       //   client: client,

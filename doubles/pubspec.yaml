@@ -26,6 +26,7 @@ dependencies:
   flutter:
     sdk: flutter
   eva_icons_flutter: ^2.0.1
+  table_calendar: ^2.3.1
 
 
   # The following adds the Cupertino Icons font to your application.
