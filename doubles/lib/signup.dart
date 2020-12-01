@@ -1,6 +1,14 @@
 import 'package:flutter/material.dart';
 
 class SignUp extends StatelessWidget {
+  final _firstNameController = TextEditingController();
+  final _lastNameController = TextEditingController();
+  final _gradeController = TextEditingController();
+  final _universityController = TextEditingController();
+  final _emailController = TextEditingController();
+  final _passwordController = TextEditingController();
+  final _confirmPasswordController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -56,11 +64,20 @@ class SignUp extends StatelessWidget {
                   padding: EdgeInsets.symmetric(horizontal:40),
                   child: Column(
                     children: <Widget>[
-                      makeInput(label: "UserName"),
-                      SizedBox(height:10, ),
-                      makeInput(label: "Password", obsecureText: true),
-                      SizedBox(height:10, ),
-                      makeInput(label: "Confirm Password", obsecureText: true),
+                      makeInput(label: "First Name", controller: _firstNameController),
+
+                      makeInput(label: "Last Name", controller: _lastNameController),
+
+                      makeInput(label: "E-mail", controller: _emailController),
+
+                      makeInput(label: "Grade", controller: _gradeController),
+
+                      makeInput(label: "University", controller: _universityController),
+
+                      makeInput(label: "Password", obsecureText: true, controller: _passwordController),
+
+                      makeInput(label: "Confirm Password", obsecureText: true, controller: _confirmPasswordController),
+
                     ],
                   ),
                 ),
@@ -105,7 +122,7 @@ class SignUp extends StatelessWidget {
       ],
     );
   }
-  Widget makeInput({label, obsecureText = false}){
+  Widget makeInput({label, obsecureText = false, TextEditingController controller}){
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
@@ -126,7 +143,8 @@ class SignUp extends StatelessWidget {
             //   borderSide: BorderSide(color: Colors.redAccent)
             // ),
           ),
-        )
+        ),
+        SizedBox(height:10, ),
       ],
     );
   }

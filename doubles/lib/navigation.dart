@@ -25,7 +25,7 @@ class _NavigationPageState extends State<NavigationPage> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
-<<<<<<< HEAD
+
           bottomIcons == BottomIcons.Home ? Center(
             child: MaterialButton(
               // onPressed: (){
@@ -98,8 +98,8 @@ class _NavigationPageState extends State<NavigationPage> {
                 ],
               ),
             ),
-          )
-=======
+          ),
+
           GestureDetector(
               onTap: () {
                 setState(() {
@@ -245,7 +245,7 @@ class _NavigationPageState extends State<NavigationPage> {
           // Icon(Icons.assignment_turned_in_outlined),
           // Icon(Icons.bookmarks),
           // Icon(Icons.menu),
->>>>>>> a902885f75f10bc97cc564de8e758b423e1f347f
+
         ],
       ),
     );

@@ -3,16 +3,19 @@ author: khuslen, sukhbat
 last update: 12/2020
 * */
 
+import 'package:doubles/assignment.dart';
 import 'package:doubles/more.dart';
 import 'package:flutter/material.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
-import 'file:///E:/projects/doubles.app/doubles/lib/modules/login/login.dart';
+
 import 'package:doubles/signup.dart';
 import 'package:doubles/test.dart';
 import 'package:doubles/navigation.dart';
 import 'package:flutter/services.dart';
 import 'package:doubles/calendar.dart';
 import 'package:doubles/more.dart';
+
+import 'modules/login/login.dart';
 
 void main() => runApp(App());
 
@@ -30,11 +33,9 @@ class App extends StatelessWidget {
     // );
 
     return MaterialApp(
-<<<<<<< HEAD
-      home: MorePage(),
-=======
-      home: HomePage(),
->>>>>>> a902885f75f10bc97cc564de8e758b423e1f347f
+
+      home: AssignmentPage(),
+
       // home: GraphQLProvider(
       //   child: HomePage(),
       //   client: client,

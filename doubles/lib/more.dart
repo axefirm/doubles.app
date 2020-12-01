@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gradient_app_bar/gradient_app_bar.dart';
+import 'package:doubles/navigation.dart';
 
 class MorePage extends StatefulWidget {
   @override
@@ -10,6 +11,7 @@ class _MorePageState extends State<MorePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      //bottomNavigationBar: NavigationPage(),
       body: Container(
         height: MediaQuery.of(context).size.height,
         width: double.infinity,
