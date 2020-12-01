@@ -25,7 +25,7 @@ Stream<LoginState> _mapLogin(Login event) async* {
   try {
     yield LoginLoading();
 
-    final token = await Api.login(event.email, event.password);
+    final res = await Api.login(event.email, event.password);
   } catch (e) {
     yield LoginFailed(res: "failed");
   }

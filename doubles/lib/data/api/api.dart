@@ -1,5 +1,6 @@
 
 import 'package:doubles/data/mutations/mutations.dart' as mutations;
+import 'package:doubles/modules/signup/signup_bloc.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 
 import './../graphql_config.dart';
@@ -8,24 +9,38 @@ GraphQLConfiguration graphQLConfiguration = GraphQLConfiguration();
 
 class Api {
 
+  ///
+  /// Нэвтрэх хэсэг
+  ///
   static Future<String> login(String email, String password) async {
     GraphQLClient _client = graphQLConfiguration.clientToQuery();
 
     var document = gql(mutations.login(email, password));
     QueryResult result;
-    print(result);
     result = await _client.mutate(
       MutationOptions(
         documentNode: document,
       ),
     );
-    print(result.hasException);
-    print(result.exception);
+    print("res: " + result.data["login"]);
+    return result.data["login"];
+  }
 
+  ///
+  /// Бүртгүүлэх хэсэг
+  ///
 
-    print(result.data["login"]);
+  static Future<String> signUp(Signup event) async {
+    GraphQLClient _client = graphQLConfiguration.clientToQuery();
 
-    print("Tokeeeeeeeen:   " + result.data["login"]["webtoken"]);
-    return result.data["login"]["webtoken"];
+    var document = gql(mutations.signup(event.email, event.password, event.firstName, event.lastName, event.grade, event.university));
+    QueryResult result;
+    result = await _client.mutate(
+      MutationOptions(
+        documentNode: document,
+      ),
+    );
+    print("response: " + result.data["createStudent"]);
+    return result.data["createStudent"];
   }
 }

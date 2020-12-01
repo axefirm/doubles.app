@@ -7,8 +7,8 @@ import 'package:doubles/assignment.dart';
 import 'package:doubles/more.dart';
 import 'package:flutter/material.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
-
-import 'package:doubles/signup.dart';
+import 'file:///E:/projects/doubles.app/doubles/lib/modules/login/login.dart';
+import 'file:///E:/projects/doubles.app/doubles/lib/modules/signup/signup.dart';
 import 'package:doubles/test.dart';
 import 'package:doubles/navigation.dart';
 import 'package:flutter/services.dart';
@@ -33,9 +33,7 @@ class App extends StatelessWidget {
     // );
 
     return MaterialApp(
-
-      home: AssignmentPage(),
-
+      home: HomePage(),
       // home: GraphQLProvider(
       //   child: HomePage(),
       //   client: client,

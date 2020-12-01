@@ -25,7 +25,6 @@ class _NavigationPageState extends State<NavigationPage> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
-
           bottomIcons == BottomIcons.Home ? Center(
             child: MaterialButton(
               // onPressed: (){
@@ -98,6 +97,7 @@ class _NavigationPageState extends State<NavigationPage> {
                 ],
               ),
             ),
+          )
           ),
 
           GestureDetector(
