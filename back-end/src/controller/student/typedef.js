@@ -33,15 +33,15 @@ const student = gql`
   }
 
   type Mutation{
-      createStudent(input: StudentInput): Response
+      createStudent(input: StudentInput): AuthResponse
       login(input: LoginInput): AuthResponse
   }
 
   type AuthResponse {
     token: String
     data: Student
-    error: Boolean
-    errormessage: String
+    success: Boolean
+    message: String
   }
 `;
 

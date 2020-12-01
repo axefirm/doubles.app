@@ -1,13 +1,12 @@
-<<<<<<< HEAD:doubles/lib/login.dart
 /*
 author: khuslen, sukhbat
 last update: 12/2020
 * */
 
-=======
-import 'package:doubles/modules/login/login_bloc.dart';
->>>>>>> a902885f75f10bc97cc564de8e758b423e1f347f:doubles/lib/modules/login/login.dart
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'login_bloc.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -18,25 +17,62 @@ class _LoginPageState extends State<LoginPage> {
   final _usernameController = TextEditingController();
   final _passwordController = TextEditingController();
   LoginBloc login;
+  FToast fToast;
 
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
     login = LoginBloc();
+    fToast = FToast();
+    fToast.init(context);
   }
+
   @override
   Widget build(BuildContext context) {
+    return BlocProvider<LoginBloc>(
+      create: (context) => login,
+      child: BlocListener<LoginBloc, LoginState>(
+        listener: _blocListener,
+        child: BlocBuilder<LoginBloc, LoginState>(
+          builder: _blocBuilder,
+        ),
+      ),
+    );
+  }
+
+  void _blocListener(BuildContext context, LoginState state){
+    if(state is LoginSuccess){
+      ///TODO
+    }else if(state is LoginFailed){
+      fToast.showToast(
+        child: Text('test'),
+        gravity: ToastGravity.BOTTOM,
+        toastDuration: Duration(seconds: 2),
+      );
+    }
+  }
+
+  Widget _blocBuilder(BuildContext context, LoginState state){
     return Stack(
       children: [
         Image.asset(
           'assets/img/m.jpg',
-          height: MediaQuery.of(context).size.height,
-          width: MediaQuery.of(context).size.width,
+          height: MediaQuery
+              .of(context)
+              .size
+              .height,
+          width: MediaQuery
+              .of(context)
+              .size
+              .width,
           fit: BoxFit.cover,
         ),
         Container(
-          height: MediaQuery.of(context).size.height,
+          height: MediaQuery
+              .of(context)
+              .size
+              .height,
           decoration: BoxDecoration(
             color: Color(0xFFE3F2FD).withOpacity(0.4),
           ),
@@ -56,7 +92,10 @@ class _LoginPageState extends State<LoginPage> {
           //   ),
           // ),
           body: Container(
-            height: MediaQuery.of(context).size.height,
+            height: MediaQuery
+                .of(context)
+                .size
+                .height,
             width: double.infinity,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -67,11 +106,14 @@ class _LoginPageState extends State<LoginPage> {
                       //mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
                         Container(
-                          height: MediaQuery.of(context).size.height / 8,
+                          height: MediaQuery
+                              .of(context)
+                              .size
+                              .height / 8,
                           decoration: BoxDecoration(
                               image: DecorationImage(
                                   image:
-                                      AssetImage('assets/img/logo-mini.png'))),
+                                  AssetImage('assets/img/logo-mini.png'))),
                         ), //logo
                       ],
                     ),
@@ -81,11 +123,14 @@ class _LoginPageState extends State<LoginPage> {
                   padding: EdgeInsets.symmetric(horizontal: 40),
                   child: Column(
                     children: <Widget>[
-                      makeInput(label: "UserName", controller: _usernameController),
+                      makeInput(
+                          label: "UserName", controller: _usernameController),
                       SizedBox(
                         height: 10,
                       ),
-                      makeInput(label: "Password", obsecureText: true, controller: _passwordController),
+                      makeInput(label: "Password",
+                          obsecureText: true,
+                          controller: _passwordController),
                     ],
                   ),
                 ),
@@ -95,7 +140,8 @@ class _LoginPageState extends State<LoginPage> {
                       child: MaterialButton(
                         minWidth: double.infinity,
                         height: 45,
-                        onPressed: () =>{
+                        onPressed: () =>
+                        {
                           _onLoginButtonPressed(),
                         },
                         color: Colors.redAccent,
@@ -160,6 +206,7 @@ class _LoginPageState extends State<LoginPage> {
       ],
     );
   }
+
   _onLoginButtonPressed() {
     login.add(Login(_usernameController.text, _passwordController.text));
   }

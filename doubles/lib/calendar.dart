@@ -1,12 +1,4 @@
-<<<<<<< HEAD
-/*
-author: khuslen, sukhbat
-last update: 12/2020
-* */
-
-=======
 import 'package:doubles/navigation.dart';
->>>>>>> a902885f75f10bc97cc564de8e758b423e1f347f
 import 'package:flutter/material.dart';
 import 'package:table_calendar/table_calendar.dart';
 
