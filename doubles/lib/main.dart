@@ -1,3 +1,9 @@
+/*
+author: khuslen, sukhbat
+last update: 12/2020
+* */
+
+import 'package:doubles/more.dart';
 import 'package:flutter/material.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:doubles/login.dart';
@@ -6,6 +12,7 @@ import 'package:doubles/test.dart';
 import 'package:doubles/navigation.dart';
 import 'package:flutter/services.dart';
 import 'package:doubles/calendar.dart';
+import 'package:doubles/more.dart';
 
 void main() => runApp(App());
 
@@ -23,7 +30,7 @@ class App extends StatelessWidget {
     // );
 
     return MaterialApp(
-      home: Calendar(),
+      home: MorePage(),
       // home: GraphQLProvider(
       //   child: HomePage(),
       //   client: client,

@@ -1,12 +1,17 @@
+/*
+author: khuslen, sukhbat
+last update: 12/2020
+* */
+
 import 'package:flutter/material.dart';
 import 'package:table_calendar/table_calendar.dart';
 
-class Calendar extends StatefulWidget {
+class CalendarPage extends StatefulWidget {
   @override
   _CalendarState createState() => _CalendarState();
 }
 
-class _CalendarState extends State<Calendar> {
+class _CalendarState extends State<CalendarPage> {
   CalendarController _controller;
   TextStyle dayStyle(FontWeight fontWeight){
     return TextStyle(
