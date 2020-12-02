@@ -1,12 +1,12 @@
-<<<<<<< HEAD:doubles/lib/login.dart
+
 /*
 author: khuslen, sukhbat
 last update: 12/2020
 * */
 
-=======
+
 import 'package:doubles/modules/login/login_bloc.dart';
->>>>>>> a902885f75f10bc97cc564de8e758b423e1f347f:doubles/lib/modules/login/login.dart
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';

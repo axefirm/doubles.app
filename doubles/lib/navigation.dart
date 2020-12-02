@@ -97,9 +97,7 @@ class _NavigationPageState extends State<NavigationPage> {
                 ],
               ),
             ),
-          )
           ),
-
           GestureDetector(
               onTap: () {
                 setState(() {

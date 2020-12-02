@@ -1,4 +1,10 @@
+
+/*
+author: khuslen, sukhbat
+last update: 12/2020
+* */
 import 'package:doubles/navigation.dart';
+
 import 'package:flutter/material.dart';
 import 'package:table_calendar/table_calendar.dart';
 
@@ -181,46 +187,46 @@ class _CalendarState extends State<CalendarPage> {
                         ),
                       ],
                     ),
-                    Positioned(
-                      bottom: 0,
-                      height: 200,
-                      width:  MediaQuery.of(context).size.width,
-                      child: Container(
-                        decoration: BoxDecoration(
-                          gradient: LinearGradient(
-                            begin: FractionalOffset.topCenter,
-                            end: FractionalOffset.bottomCenter,
-                            colors: [
-                              Color(0xFFD54546).withOpacity(0.85),
-                              Color(0xFFD54546),
-                            ],
-                            stops: [
-                              0.0,
-                              1.0
-                            ],
-                          )
-                        ),
-                      ),
-                    ),
-                    Positioned(
-                      bottom: 40,
-                      right: 20,
-                      child: Container(
-                        padding: EdgeInsets.all((20)),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.all(Radius.circular(20)),
-                          color: Colors.redAccent,
-                          boxShadow: [BoxShadow(
-                            color: Colors.black38,
-                            blurRadius: 30,
-                          )],
-                        ),
-                        child: Text("+", style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 40,
-                        ),),
-                      ),
-                    ),
+                    // Positioned(
+                    //   bottom: 0,
+                    //   height: 200,
+                    //   width:  MediaQuery.of(context).size.width,
+                    //   child: Container(
+                    //     decoration: BoxDecoration(
+                    //       gradient: LinearGradient(
+                    //         begin: FractionalOffset.topCenter,
+                    //         end: FractionalOffset.bottomCenter,
+                    //         colors: [
+                    //           Color(0xFFD54546).withOpacity(0.85),
+                    //           Color(0xFFD54546),
+                    //         ],
+                    //         stops: [
+                    //           0.0,
+                    //           1.0
+                    //         ],
+                    //       )
+                    //     ),
+                    //   ),
+                    // ),
+                    // Positioned(
+                    //   bottom: 40,
+                    //   right: 20,
+                    //   child: Container(
+                    //     padding: EdgeInsets.all((20)),
+                    //     decoration: BoxDecoration(
+                    //       borderRadius: BorderRadius.all(Radius.circular(20)),
+                    //       color: Colors.redAccent,
+                    //       boxShadow: [BoxShadow(
+                    //         color: Colors.black38,
+                    //         blurRadius: 30,
+                    //       )],
+                    //     ),
+                    //     child: Text("+", style: TextStyle(
+                    //       color: Colors.white,
+                    //       fontSize: 40,
+                    //     ),),
+                    //   ),
+                    // ),
                   ],
                 ),
               ),
