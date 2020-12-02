@@ -3,6 +3,7 @@ author: khuslen, sukhbat
 last update: 12/2020
 * */
 
+import 'package:doubles/assignment.dart';
 import 'package:doubles/calendar.dart';
 import 'package:flutter/material.dart';
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
@@ -25,22 +26,22 @@ class _NavigationPageState extends State<NavigationPage> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
-          bottomIcons == BottomIcons.Home ? Center(
-            child: MaterialButton(
-              // onPressed: (){
-              //   Navigator.push(context, MaterialPageRoute(builder: (context) => CalendarPage()));
-              // },
-            ),
-          ):Container(),
-          bottomIcons == BottomIcons.Assignment ? Center(
-            child: Text("Hi, assignment", style: TextStyle(fontSize: 18),),
-          ):Container(),
-          bottomIcons == BottomIcons.Mark ? Center(
-            child: Text("Hi, courses", style: TextStyle(fontSize: 18),),
-          ):Container(),
-          bottomIcons == BottomIcons.Menu ? Center(
-            child: Text("Hi, home more", style: TextStyle(fontSize: 18),),
-          ):Container(),
+          // bottomIcons == BottomIcons.Home ? Center(
+          //   child: MaterialButton(
+          //     // onPressed: (){
+          //     //   Navigator.push(context, MaterialPageRoute(builder: (context) => CalendarPage()));
+          //     // },
+          //   ),
+          // ):Container(),
+          // bottomIcons == BottomIcons.Assignment ? Center(
+          //   child: Text("Hi, assignment", style: TextStyle(fontSize: 18),),
+          // ):Container(),
+          // bottomIcons == BottomIcons.Mark ? Center(
+          //   child: Text("Hi, courses", style: TextStyle(fontSize: 18),),
+          // ):Container(),
+          // bottomIcons == BottomIcons.Menu ? Center(
+          //   child: Text("Hi, home more", style: TextStyle(fontSize: 18),),
+          // ):Container(),
           Align(
            alignment: Alignment.bottomLeft,
             child: Container(
@@ -61,6 +62,7 @@ class _NavigationPageState extends State<NavigationPage> {
                   ),
                   BottomBar(
                     onPressed: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => AssignmentPage()));
                       setState(() {
                         bottomIcons = BottomIcons.Assignment;
                       });

@@ -33,7 +33,7 @@ class App extends StatelessWidget {
     // );
 
     return MaterialApp(
-      home: AssignmentPage(),
+      home: NavigationPage(),
       // home: GraphQLProvider(
       //   child: HomePage(),
       //   client: client,
