@@ -3,17 +3,17 @@ author: khuslen, sukhbat
 last update: 12/2020
 * */
 
-import 'package:doubles/assignment.dart';
+import 'file:///E:/projects/doubles.app/doubles/lib/modules/dashboard/tabs/assignment.dart';
 import 'package:doubles/modules/signup/signup.dart';
-import 'package:doubles/more.dart';
+import 'file:///E:/projects/doubles.app/doubles/lib/modules/dashboard/tabs/more.dart';
 import 'package:flutter/material.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 
 import 'package:doubles/test.dart';
 import 'package:doubles/navigation.dart';
 import 'package:flutter/services.dart';
-import 'package:doubles/calendar.dart';
-import 'package:doubles/more.dart';
+import 'file:///E:/projects/doubles.app/doubles/lib/modules/dashboard/dashboard.dart';
+import 'file:///E:/projects/doubles.app/doubles/lib/modules/dashboard/tabs/more.dart';
 
 import 'modules/login/login.dart';
 
@@ -33,7 +33,7 @@ class App extends StatelessWidget {
     // );
 
     return MaterialApp(
-      home: NavigationPage(),
+      home: DashboardPage(),
       // home: GraphQLProvider(
       //   child: HomePage(),
       //   client: client,
