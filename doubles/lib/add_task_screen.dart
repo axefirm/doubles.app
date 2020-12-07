@@ -72,7 +72,7 @@ class _AddTaskScreenPageState extends State<AddTaskScreenPage> {
                 SizedBox(height: 20,),
                 Text('Add Task', style: TextStyle(
                   color: Colors.redAccent,
-                  fontSize: 35,
+                  fontSize: 30,
                   fontWeight: FontWeight.bold,
                 ),),
                 SizedBox(height: 10.0,),
@@ -151,7 +151,7 @@ class _AddTaskScreenPageState extends State<AddTaskScreenPage> {
                       ),
                       Container(
                         margin: EdgeInsets.symmetric(vertical: 20.0),
-                        height: 60.0,
+                        height: 50.0,
                         width: double.infinity,
                         decoration: BoxDecoration(
                           color: Colors.redAccent,
@@ -162,7 +162,7 @@ class _AddTaskScreenPageState extends State<AddTaskScreenPage> {
                             'Add',
                             style: TextStyle(
                               color: Colors.white,
-                              fontSize: 20.0,
+                              fontSize: 18.0,
                             ),
                           ),
                           onPressed: _submit,

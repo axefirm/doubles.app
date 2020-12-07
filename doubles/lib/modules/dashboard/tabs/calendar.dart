@@ -29,7 +29,7 @@ class _CalendarTabState extends State<CalendarTab> {
      child: SingleChildScrollView(
        child: Column(
          children: <Widget>[
-           SizedBox(height: 30,),
+           SizedBox(height: 20,),
            TableCalendar(
              startingDayOfWeek: StartingDayOfWeek.monday,
              calendarStyle: CalendarStyle(

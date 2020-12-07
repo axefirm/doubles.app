@@ -2,7 +2,10 @@
 author: khuslen, sukhbat
 last update: 12/2020
 * */
+import 'package:doubles/modules/dashboard/tabs/assignment.dart';
 import 'package:doubles/modules/dashboard/tabs/calendar.dart';
+import 'package:doubles/modules/dashboard/tabs/course.dart';
+import 'package:doubles/modules/dashboard/tabs/more.dart';
 import 'package:doubles/navigation.dart';
 
 import 'package:flutter/material.dart';
@@ -32,19 +35,23 @@ class _DashboardPage extends State<DashboardPage> {
     super.dispose();
   }
 
+  void assignment(){
+      Navigator.push(context, MaterialPageRoute(builder: (context) => AssignmentPage()));
+  }
+
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar:
-      PreferredSize(
-        preferredSize: Size.fromHeight(90.0), // here the desired height
-        child: Container(
-          height: 90,
-          child: Text("2020"),
-          decoration: new BoxDecoration(color: Color(0xffE57A7A)),
-        ),
-      ),
+      // appBar:
+      // PreferredSize(
+      //   preferredSize: Size.fromHeight(90.0), // here the desired height
+      //   child: Container(
+      //     height: 90,
+      //     child: Text("2020"),
+      //     decoration: new BoxDecoration(color: Color(0xffE57A7A)),
+      //   ),
+      // ),
       bottomNavigationBar: Container(
-        padding: EdgeInsets.only(left: 24, right: 24, bottom: 10, top: 10),
+        padding: EdgeInsets.only(left: 24, right: 24, bottom: 8, top: 8),
         width: MediaQuery
             .of(context)
             .size
@@ -105,10 +112,10 @@ class _DashboardPage extends State<DashboardPage> {
         child: tabIndex == 0
             ? CalendarTab()
             : tabIndex == 1
-            ? Text("test 1")
+            ? AssignmentPage()
             : tabIndex == 2
-            ? Text("test 2")
-            : Text("test 3"),
+            ? CoursePage()
+            : MorePage()
       ),
     );
   }

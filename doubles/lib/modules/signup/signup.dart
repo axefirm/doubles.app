@@ -13,6 +13,7 @@ class SignUp extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: [
+        SizedBox(height: 10,),
         Image.asset(
           'assets/img/mm.jpg',
           height: MediaQuery.of(context).size.height,
@@ -139,6 +140,7 @@ class SignUp extends StatelessWidget {
                       image: DecorationImage(
                           image: AssetImage('assets/img/logo-mini.png'))),
                 ),
+                SizedBox(height: 20,),
                 makeInput(
                     label: "First Name", controller: _firstNameController),
                 makeInput(label: "Last Name", controller: _lastNameController),
