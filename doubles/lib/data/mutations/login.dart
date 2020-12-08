@@ -3,6 +3,11 @@ String login(String email, String password) {
   mutation {
   login(input: { email: "$email", password: "$password" }) {
     token
+    success
+    data{
+      firstname
+      lastname
+    }
   }
 }
 """;

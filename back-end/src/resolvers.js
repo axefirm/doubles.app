@@ -1,6 +1,7 @@
 const resolvers = {
     Query: {
         getUsers: async function(root, args, context, info){
+            console.log("getUsers called");
             return await context.db.collection('user').find().toArray();
           },
     },

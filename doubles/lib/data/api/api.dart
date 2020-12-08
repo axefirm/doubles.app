@@ -22,8 +22,8 @@ class Api {
         documentNode: document,
       ),
     );
-    print("res: " + result.data["login"]);
-    return result.data["login"];
+    print(result.data["login"]);
+    return result.data["login"].toString();
   }
 
   ///

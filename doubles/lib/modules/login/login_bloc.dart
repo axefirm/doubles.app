@@ -24,9 +24,13 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
 Stream<LoginState> _mapLogin(Login event) async* {
   try {
     yield LoginLoading();
+    print("login");
 
-    final res = await Api.login(event.email, event.password);
+    var res = await Api.login(event.email, event.password);
+    print(res.toString());
+    yield LoginSuccess(res: res);
   } catch (e) {
+    print(e);
     yield LoginFailed(res: "failed");
   }
 }

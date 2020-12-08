@@ -9,6 +9,8 @@ const GMR  = require('graphql-merge-resolvers'); // Import module
 const { studentDef } = require('./src/controller/student/typedef');
 const { studentResolver } = require('./src/controller/student/index');
 
+var ip = require("ip");
+
 let MongoClient = require('mongodb').MongoClient;
 let ObjectId = require('mongodb').ObjectId;
 
@@ -47,5 +49,6 @@ const apolloServer = new ApolloServer({
 
 apolloServer.applyMiddleware({ app });
 
-app.listen(4000);
-console.log(`Running a GraphQL API server at http://localhost:4000 ${apolloServer.graphqlPath}`);
+app.listen(4000, ip.address(), function(){
+console.log(`Running a GraphQL API server at http://${ip.address()}:4000${apolloServer.graphqlPath}`);
+});
