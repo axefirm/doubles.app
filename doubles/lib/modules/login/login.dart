@@ -202,6 +202,7 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   _onLoginButtonPressed() {
+    print(_usernameController.text);
     login.add(Login(_usernameController.text, _passwordController.text));
   }
 }

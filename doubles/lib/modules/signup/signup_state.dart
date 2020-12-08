@@ -1,22 +1,22 @@
 part of 'signup_bloc.dart';
 
 @immutable
-abstract class SignupState {}
+abstract class SignUpState {}
 
-class SignupInitial extends SignupState {}
+class SignUpInitial extends SignUpState {}
 
-class SignupLoading extends SignupState {}
+class SignUpLoading extends SignUpState {}
 
-class SignupSuccess extends SignupState {
+class SignUpSuccess extends SignUpState {
 
   var res;
 
-  SignupSuccess({this.res});
+  SignUpSuccess({this.res});
 }
 
-class SignupFailed extends SignupState {
+class SignUpFailed extends SignUpState {
 
   var res;
 
-  SignupFailed({this.res});
+  SignUpFailed({this.res});
 }

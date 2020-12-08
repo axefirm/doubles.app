@@ -7,11 +7,11 @@ import 'package:meta/meta.dart';
 part 'signup_event.dart';
 part 'signup_state.dart';
 
-class SignupBloc extends Bloc<SignupEvent, SignupState> {
-  SignupBloc() : super(SignupInitial());
+class SignUpBloc extends Bloc<SignupEvent, SignUpState> {
+  SignUpBloc() : super(SignUpInitial());
 
   @override
-  Stream<SignupState> mapEventToState(
+  Stream<SignUpState> mapEventToState(
     SignupEvent event,
   ) async* {
     if (event is Signup) {
@@ -20,12 +20,13 @@ class SignupBloc extends Bloc<SignupEvent, SignupState> {
   }
 }
 
-Stream<SignupState> _mapSignup(Signup event) async* {
+Stream<SignUpState> _mapSignup(Signup event) async* {
   try {
-    yield SignupLoading();
+    yield SignUpLoading();
 
     var res = await Api.signUp(event);
+    yield SignUpSuccess(res: res);
   } catch (e) {
-    yield SignupFailed(res: "failed");
+    yield SignUpFailed(res: "failed");
   }
 }

@@ -33,6 +33,7 @@ class Api {
   static Future<String> signUp(Signup event) async {
     GraphQLClient _client = graphQLConfiguration.clientToQuery();
 
+    print(event.email);
     var document = gql(mutations.signup(event.email, event.password, event.firstName, event.lastName, event.grade, event.university));
     QueryResult result;
     result = await _client.mutate(
@@ -40,7 +41,7 @@ class Api {
         documentNode: document,
       ),
     );
-    print("response: " + result.data["createStudent"]);
+    print("response: " + result.data);
     return result.data["createStudent"];
   }
 }
