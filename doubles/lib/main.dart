@@ -7,9 +7,10 @@ last update: 12/2020
 import 'package:doubles/modules/dashboard/dashboard.dart';
 import 'package:doubles/modules/dashboard/tabs/calendar.dart';
 import 'package:doubles/modules/signup/signup.dart';
-import 'package:doubles/setUpPage.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 
 import 'package:doubles/test.dart';
@@ -17,30 +18,29 @@ import 'package:doubles/navigation.dart';
 import 'package:flutter/services.dart';
 
 
+import 'data/firebase/push_notification.dart';
 import 'modules/login/login.dart';
 
 void main() => runApp(App());
 
 class App extends StatelessWidget {
+  static final FirebaseMessaging _firebaseMessaging = FirebaseMessaging();
+
   @override
   Widget build(BuildContext context) {
-    // final HttpLink httpLink = HttpLink(uri: "http://localhost:4000/graphql");
-    // final ValueNotifier<GraphQLClient> client = ValueNotifier<GraphQLClient>(
-    //   GraphQLClient(
-    //     link: httpLink as HttpLink,
-    //     cache: OptimisticCache(
-    //       dataIdFromObject: typenameDataIdFromObject,
-    //     ),
-    //   ),
-    // );
+    final pushNotificationService = PushNotificationService(_firebaseMessaging);
+    final _storage = FlutterSecureStorage();
+    pushNotificationService.initialise();
+
+    _firebaseMessaging.getToken().then((String token) async {
+      print(token);
+      assert(token != null);
+      await _storage.write(key: "pushToken", value: token);
+    });
+
 
     return MaterialApp(
       home: HomePage(),
-      // home: GraphQLProvider(
-      //   child: HomePage(),
-      //   client: client,
-      // ),
-
     );
   }
 }

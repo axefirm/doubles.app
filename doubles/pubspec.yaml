@@ -38,6 +38,8 @@ dependencies:
   cupertino_icons: ^1.0.0
   firebase_auth: ^0.18.3+1
   cloud_firestore: ^0.14.3+1
+  firebase_messaging: ^7.0.3
+  awesome_notifications: ^0.0.5+2
 
 dev_dependencies:
   artemis: ^5.1.0 # to generate dart classes from graphql queries

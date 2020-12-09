@@ -8,6 +8,8 @@ const GMR  = require('graphql-merge-resolvers'); // Import module
 // const { typeDefs } = require('./src/typeDefs.js');
 const { studentDef } = require('./src/controller/student/typedef');
 const { studentResolver } = require('./src/controller/student/index');
+const { taskDef } = require('./src/controller/task/typedef');
+const { taskResolver } = require('./src/controller/task/index');
 
 var ip = require("ip");
 
@@ -20,10 +22,12 @@ let db;
 
 const apolloServer = new ApolloServer({
     typeDefs: mergeTypeDefs([
-        studentDef
+        studentDef,
+        taskDef
     ]),
     resolvers: GMR.merge([
         studentResolver,
+        taskResolver
       ]),
     context: async () => {
         if (!db) {
