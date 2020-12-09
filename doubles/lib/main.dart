@@ -40,7 +40,7 @@ class App extends StatelessWidget {
 
 
     return MaterialApp(
-      home: HomePage(),
+      home: DashboardPage(),
     );
   }
 }
