@@ -2,6 +2,8 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:doubles/data/api/api.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:meta/meta.dart';
 
 part 'login_event.dart';
@@ -26,12 +28,18 @@ Stream<LoginState> _mapLogin(Login event) async* {
     yield LoginLoading();
     print("login");
 
-    var res = await Api.login(event.email, event.password);
-
-    print(res.token);
-    yield LoginSuccess(res: res);
+    QueryResult res = await Api.login(event.email, event.password);
+    if(res.data["login"]["success"]){
+      final _storage = FlutterSecureStorage();
+      print(res.data["login"]["data"]["_id"]);
+      // assert(token != null);
+      await _storage.write(key: "userId", value: res.data["login"]["data"]["_id"]);
+      yield LoginSuccess(res: res);
+    }else{
+      yield LoginFailed(res: res.data["login"]["message"]);
+    }
   } catch (e) {
     print(e);
-    yield LoginFailed(res: "failed");
+    yield LoginFailed(res: "Алдаа гарлаа системийн админд хандана уу");
   }
 }

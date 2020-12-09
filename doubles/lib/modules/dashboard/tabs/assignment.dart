@@ -1,8 +1,12 @@
-import 'package:doubles/add_task_screen.dart';
+import 'file:///E:/projects/doubles.app/doubles/lib/modules/task/add_task_screen.dart';
+import 'package:doubles/modules/signup/signup_bloc.dart';
 import 'package:doubles/navigation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:gradient_app_bar/gradient_app_bar.dart';
-import 'package:doubles/add_task_screen.dart';
+import 'package:doubles/modules/dashboard/bloc/dashboard_bloc.dart';
+import 'file:///E:/projects/doubles.app/doubles/lib/modules/task/add_task_screen.dart';
 
 class AssignmentPage extends StatefulWidget {
   @override
@@ -10,25 +14,62 @@ class AssignmentPage extends StatefulWidget {
 }
 
 class _AssignmentPageState extends State<AssignmentPage> {
+  List<Task> list = [];
+  DashboardBloc _bloc;
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
 
-   Widget _buildTask(int index){
+    _bloc = DashboardBloc();
+    _bloc.add(GetTasks());
+  }
+
+   Widget _buildTask(int index,String title,String dueDate,bool isDone){
      return Padding(
        padding: EdgeInsets.symmetric(horizontal: 25.0),
        child: ListTile(
-         title: Text('Task Title'),
-         subtitle: Text('Oct 22, 2019'),
+         title: Text(title),
+         subtitle: Text(dueDate),
          trailing: Checkbox(onChanged: (value){
-           print(value);
+           isDone = value;
          },
            activeColor: Colors.redAccent,
-           value: true,
+           value: isDone,
          ),
        ),
      );
    }
-  
-  @override
-  Widget build(BuildContext context) {
+
+   @override
+   Widget build(BuildContext context) {
+     return BlocProvider<DashboardBloc>(
+       create: (context) => _bloc,
+       child: BlocListener<DashboardBloc, DashboardState>(
+         listener: _blocListener,
+         child: BlocBuilder<DashboardBloc, DashboardState>(
+           builder: _blocBuilder,
+         ),
+       ),
+     );
+   }
+
+   void _blocListener(BuildContext context, DashboardState state) {
+     if (state is DashboardSuccess) {
+       print("DashboardSuccess");
+       print(state.res.data["getTasks"]);
+       // List<Task> list = state.res.data["getTasks"];
+
+       for(var item in state.res.data["getTasks"]){
+          Task test =Task(item["_id"],item["dueDate"],item["level"],item["title"],item["isDone"]);
+          list.add(test);
+       }
+     } else if (state is DashboardFailed) {
+
+     }
+   }
+
+   Widget _blocBuilder(BuildContext context, DashboardState state) {
     return Scaffold(
       appBar: PreferredSize(
           preferredSize: Size.fromHeight(90.0), // here the desired height
@@ -47,8 +88,9 @@ class _AssignmentPageState extends State<AssignmentPage> {
         ),
       ),
 
-      body: ListView.builder(
-          itemCount: 10,
+      body:
+      ListView.builder(
+          itemCount: this.list.length,
           itemBuilder: (BuildContext context, int index){
             if(index == 0){
               return Padding(
@@ -65,11 +107,28 @@ class _AssignmentPageState extends State<AssignmentPage> {
                 ),
               );
             }
-            return _buildTask(index);
+            return _buildTask(index,this.list[index].title, this.list[index].dueDate,this.list[index].isDone);
           },
       ),
 
 
     );
   }
+}
+
+class Task {
+  String _id;
+  String dueDate;
+  String level;
+  String title;
+  bool isDone;
+
+  Task(this._id, this.dueDate, this.level, this.title, this.isDone);
+
+  Task.fromJson(Map<String, dynamic> json)
+      : _id = json['_id'],
+        dueDate = json['dueDate'],
+        level = json['level'],
+        isDone = json['isDone'],
+        title = json['title'];
 }

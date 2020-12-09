@@ -1,6 +1,10 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:intl/intl.dart';
 
+import 'task_bloc.dart';
 class AddTaskScreenPage extends StatefulWidget {
   @override
   _AddTaskScreenPageState createState() => _AddTaskScreenPageState();
@@ -16,10 +20,17 @@ class _AddTaskScreenPageState extends State<AddTaskScreenPage> {
   final DateFormat _dateFormatter = DateFormat('MM dd, yyyy');
   final List<String> _priorities = ['Low', 'Medium', 'High'];
 
+  TaskBloc _taskBloc;
+  FToast fToast;
+
+
   @override
   void initState(){
     super.initState();
     _dateController.text = _dateFormatter.format(_date);
+    _taskBloc = TaskBloc();
+    fToast = FToast();
+
   }
 
   _handleDatePicker() async{
@@ -42,6 +53,7 @@ class _AddTaskScreenPageState extends State<AddTaskScreenPage> {
       _formKey.currentState.save();
       print('$_title, $_date, $_priority');
 
+      _taskBloc.add(CreateTask(title: _title,description: "desc",level: _priority, dueDate: _date.toString(), userId: "asdsad",isDone: false));
       //Insert task user's database
 
       //Update task
@@ -52,6 +64,35 @@ class _AddTaskScreenPageState extends State<AddTaskScreenPage> {
 
   @override
   Widget build(BuildContext context) {
+    return BlocProvider<TaskBloc>(
+      create: (context) => _taskBloc,
+      child: BlocListener<TaskBloc, TaskState>(
+        listener: _blocListener,
+        child: BlocBuilder<TaskBloc, TaskState>(
+          builder: _blocBuilder,
+        ),
+      ),
+    );
+  }
+
+  void _blocListener(BuildContext context, TaskState state) {
+    if (state is TaskSuccess) {
+      fToast.showToast(
+        child: Text('Амжилттай үүслээ.'),
+        gravity: ToastGravity.BOTTOM,
+        toastDuration: Duration(seconds: 2),
+      );
+    } else if (state is TaskFailed) {
+      print(state.res);
+      fToast.showToast(
+        child: Text('Даалгавар үүсгэхэд алдаа гарлаа.'),
+        gravity: ToastGravity.BOTTOM,
+        toastDuration: Duration(seconds: 2),
+      );
+    }
+  }
+
+  Widget _blocBuilder(BuildContext context, TaskState state) {
     return Scaffold(
       body: GestureDetector(
         onTap: () => FocusScope.of(context).unfocus(),
@@ -92,7 +133,7 @@ class _AddTaskScreenPageState extends State<AddTaskScreenPage> {
                             ),
                           ),
                           validator: (input) =>
-                            input.trim().isEmpty ? 'Enter a task title' : null,
+                          input.trim().isEmpty ? 'Enter a task title' : null,
                           onSaved: (input) => _title = input,
                           initialValue: _title,
                         ),
@@ -140,7 +181,7 @@ class _AddTaskScreenPageState extends State<AddTaskScreenPage> {
                           validator: (input) =>
                           _priority == null
                               ? 'Select a priority lvl' :
-                              null,
+                          null,
                           onChanged: (value){
                             setState(() {
                               _priority = value;
