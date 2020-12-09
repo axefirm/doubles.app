@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gradient_app_bar/gradient_app_bar.dart';
-import 'package:doubles/addCourse.dart';
+import 'package:doubles/add_course.dart';
 
 class CoursePage extends StatefulWidget {
   @override

@@ -30,8 +30,8 @@ class _AddTaskScreenPageState extends State<AddTaskScreenPage> {
     _dateController.text = _dateFormatter.format(_date);
     _taskBloc = TaskBloc();
     fToast = FToast();
-
   }
+
 
   _handleDatePicker() async{
     final DateTime date = await showDatePicker(

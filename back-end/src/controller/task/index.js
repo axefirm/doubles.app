@@ -5,7 +5,6 @@ let ObjectId = require('mongodb').ObjectId;
 const resolver = {
     Query: {
         getTasks: async function (root, args, context, info) {
-            console.log(ObjectId(args.input.userId));
             return await context.db.collection('tasks').find({userId: ObjectId(args.input.userId)}).toArray();
         },
     },

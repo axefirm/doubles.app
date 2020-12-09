@@ -29,8 +29,11 @@ Stream<LoginState> _mapLogin(Login event) async* {
     print("login");
 
     QueryResult res = await Api.login(event.email, event.password);
+    print("res");
+    print(res.data["login"]["token"]);
     if(res.data["login"]["success"]){
       final _storage = FlutterSecureStorage();
+      print(res);
       print(res.data["login"]["data"]["_id"]);
       // assert(token != null);
       await _storage.write(key: "userId", value: res.data["login"]["data"]["_id"]);

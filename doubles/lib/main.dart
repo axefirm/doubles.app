@@ -3,20 +3,12 @@ author: khuslen, sukhbat
 last update: 12/2020
 * */
 
-
-import 'package:doubles/modules/dashboard/dashboard.dart';
-import 'package:doubles/modules/dashboard/tabs/calendar.dart';
 import 'package:doubles/modules/signup/signup.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
-import 'package:graphql_flutter/graphql_flutter.dart';
-
-import 'package:doubles/test.dart';
-import 'package:doubles/navigation.dart';
 import 'package:flutter/services.dart';
-
 
 import 'data/firebase/push_notification.dart';
 import 'modules/login/login.dart';
@@ -40,7 +32,7 @@ class App extends StatelessWidget {
 
 
     return MaterialApp(
-      home: DashboardPage(),
+      home: HomePage(),
     );
   }
 }
@@ -165,14 +157,6 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
           ),
-          // body: Query(
-          //   options: QueryOptions(
-          //     documentNode: gql(TodoFetch.fetchAll),
-          //   ),
-          //   builder: (result, {fetchMore, refetch}) {
-          //     return Text(result.data ?? "EMPTY");
-          //   },
-          // ),
         ),
       ],
     );

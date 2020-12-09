@@ -52,7 +52,7 @@ class _LoginPageState extends State<LoginPage> {
       );
     } else if (state is LoginFailed) {
       fToast.showToast(
-        child: Text('Invalid username and password.'),
+        child: Text(state.res),
         gravity: ToastGravity.BOTTOM,
         toastDuration: Duration(seconds: 2),
       );

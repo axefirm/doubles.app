@@ -1,4 +1,4 @@
-import 'package:doubles/add_task_screen.dart';
+import 'package:doubles/modules/task/add_task_screen.dart';
 import 'package:doubles/navigation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -30,7 +30,7 @@ class _AssignmentPageState extends State<AssignmentPage> {
        padding: EdgeInsets.symmetric(horizontal: 25.0),
        child: ListTile(
          title: Text(title),
-         subtitle: Text(dueDate),
+         subtitle: Text(dueDate.substring(0, 10)),
          trailing: Checkbox(onChanged: (value){
            isDone = value;
          },
