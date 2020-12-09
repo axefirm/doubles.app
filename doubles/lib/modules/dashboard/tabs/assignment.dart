@@ -3,6 +3,7 @@ import 'package:doubles/navigation.dart';
 import 'package:flutter/material.dart';
 import 'package:gradient_app_bar/gradient_app_bar.dart';
 import 'package:doubles/add_task_screen.dart';
+import 'package:flutter/material.dart';
 
 class AssignmentPage extends StatefulWidget {
   @override
@@ -34,7 +35,7 @@ class _AssignmentPageState extends State<AssignmentPage> {
           preferredSize: Size.fromHeight(90.0), // here the desired height
           child:
             GradientAppBar(
-              title: Text('2020'),
+              //title: Text('2020'),
               backgroundColorStart: Colors.red[100],
               backgroundColorEnd: Colors.redAccent,
             ),

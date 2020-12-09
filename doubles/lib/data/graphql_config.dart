@@ -6,8 +6,10 @@ class GraphQLConfiguration {
   static FlutterSecureStorage storage = new FlutterSecureStorage();
   static String token;
   static HttpLink httpLink = HttpLink(
-    // uri: "http://localhost:4000/graphql",
-    uri: "http://192.168.1.16:4000/graphql",
+    //uri: "http://localhost:4000/graphql",
+    //uri: "http://192.168.1.16:4000/graphql",
+      uri: "http://192.168.1.9:4000/graphql",
+
   );
   static AuthLink authLink = AuthLink(
       getToken: () async { return await storage.read(key: 'token'); }

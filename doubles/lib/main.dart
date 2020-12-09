@@ -5,7 +5,9 @@ last update: 12/2020
 
 
 import 'package:doubles/modules/dashboard/dashboard.dart';
+import 'package:doubles/modules/dashboard/tabs/calendar.dart';
 import 'package:doubles/modules/signup/signup.dart';
+import 'package:doubles/setUpPage.dart';
 
 import 'package:flutter/material.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';

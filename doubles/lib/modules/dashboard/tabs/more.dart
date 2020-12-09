@@ -1,6 +1,8 @@
+import 'package:doubles/main.dart';
 import 'package:flutter/material.dart';
 import 'package:gradient_app_bar/gradient_app_bar.dart';
 import 'package:doubles/navigation.dart';
+import 'package:doubles/setUpPage.dart';
 
 class MorePage extends StatefulWidget {
   @override
@@ -38,46 +40,97 @@ class _MorePageState extends State<MorePage> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.symmetric(vertical: 4),
-                  child: Text("Semester                              >", style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 18,
-                  ),),
+                  padding: EdgeInsets.symmetric(vertical: 1),
+                  child: Container(
+                    child: MaterialButton(
+                      onPressed: () {
+                        Navigator.push(context, MaterialPageRoute(builder: (context) =>SetUpPage()));
+                      },
+                      //color: Colors.white,
+                      shape: RoundedRectangleBorder(
+                          side: BorderSide(
+                              color: Colors.white
+                          ),
+                          borderRadius: BorderRadius.circular(200)
+                      ),
+                      child: Text("Semester                     >", style:
+                      TextStyle(
+                        fontWeight: FontWeight.w600,
+                        color: Colors.white,
+                      ),
+                      ),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.symmetric(vertical: 1),
+                  child: Container(
+                    child: MaterialButton(
+                      onPressed: () {
+                        Navigator.push(context, MaterialPageRoute(builder: (context) =>SetUpPage()));
+                      },
+                      //color: Colors.white,
+                      shape: RoundedRectangleBorder(
+                          side: BorderSide(
+                              color: Colors.white
+                          ),
+                          borderRadius: BorderRadius.circular(200)
+                      ),
+                      child: Text("Holiday                         >", style:
+                      TextStyle(
+                        fontWeight: FontWeight.w600,
+                        color: Colors.white,
+                      ),
+                      ),
+                    ),
+                  ),
                 ),
                 Padding(
                   padding: EdgeInsets.symmetric(vertical: 4),
-                  child: Text("Holiday                                 >", style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 18,
-                  ),),
+                  child: Container(
+                    child: MaterialButton(
+                      onPressed: () {
+                        Navigator.push(context, MaterialPageRoute(builder: (context) =>SetUpPage()));
+                      },
+                      //color: Colors.white,
+                      shape: RoundedRectangleBorder(
+                          side: BorderSide(
+                              color: Colors.white
+                          ),
+                          borderRadius: BorderRadius.circular(200)
+                      ),
+                      child: Text("Instructors                    >", style:
+                      TextStyle(
+                        fontWeight: FontWeight.w600,
+                        color: Colors.white,
+                      ),
+                      ),
+                    ),
+                  ),
                 ),
-                Padding(
-                  padding: EdgeInsets.symmetric(vertical: 4),
-                  child: Text("Instructors                            >", style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 18,
-                  ),),
-                ),
-                Padding(
-                  padding: EdgeInsets.symmetric(vertical: 4),
-                  child: Text("Themes                                 >", style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 18,
-                  ),),
-                ),
-                Padding(
-                  padding: EdgeInsets.symmetric(vertical: 4),
-                  child: Text("Passcode                              >", style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 18,
-                  ),),
-                ),
+
                 Padding(
                   padding: EdgeInsets.symmetric(vertical: 50),
-                  child: Text("Logout", style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 18,
-                  ),),
+                  child: Container(
+                    child: MaterialButton(
+                      onPressed: () {
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage()));
+                      },
+                      color: Colors.white,
+                      shape: RoundedRectangleBorder(
+                          side: BorderSide(
+                              color: Colors.white
+                          ),
+                          borderRadius: BorderRadius.circular(50)
+                      ),
+                      child: Text("Log out", style:
+                      TextStyle(
+                        fontWeight: FontWeight.w600,
+                        color: Colors.redAccent,
+                      ),
+                    ),
+                  ),
+                  ),
                 ),
               ],
             ),

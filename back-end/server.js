@@ -46,6 +46,7 @@ const apolloServer = new ApolloServer({
         return { db }
     },
 })
+console.log(ip.address())
 
 apolloServer.applyMiddleware({ app });
 

@@ -28,7 +28,7 @@ Stream<LoginState> _mapLogin(Login event) async* {
 
     var res = await Api.login(event.email, event.password);
 
-    print(res.token);
+    //print(res.token);
     yield LoginSuccess(res: res);
   } catch (e) {
     print(e);
